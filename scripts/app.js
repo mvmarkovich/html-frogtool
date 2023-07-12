@@ -1,10 +1,10 @@
 // копировать ссылку в шеринге
-document.querySelector(".js-copylink").onclick = function() {
+document.querySelector(".-frogtool-js-copylink").onclick = function() {
     let copyTextarea = document.createElement("textarea");
 
     copyTextarea.style.position = "fixed";
     copyTextarea.style.opacity = "0";
-    copyTextarea.textContent = document.querySelector('.modal__share-copylink').getAttribute('href');
+    copyTextarea.textContent = document.querySelector('.-frogtool-modal__share-copylink').getAttribute('href');
  
     document.body.appendChild(copyTextarea);
     copyTextarea.select();
@@ -15,34 +15,34 @@ document.querySelector(".js-copylink").onclick = function() {
 }
 
 // смена модальных окон
-let modal = document.querySelectorAll('.modal'),
-    modalBtn = document.querySelectorAll('[data-modal]'),
-    modalBtnClose = document.querySelectorAll('[data-close-modal]');
+let modal = document.querySelectorAll('.-frogtool-modal'),
+    modalBtn = document.querySelectorAll('[data-frogtool-modal]'),
+    modalBtnClose = document.querySelectorAll('[data-frogtool-close-modal]');
 
 function openModal() {
-    let modalId = this.getAttribute('data-modal');
+    let modalId = this.getAttribute('data-frogtool-modal');
 
-    if(document.querySelector('.modal--open')) {
-        document.querySelector('.modal--open').classList.remove('modal--open');
+    if(document.querySelector('.-frogtool-modal--open')) {
+        document.querySelector('.-frogtool-modal--open').classList.remove('-frogtool-modal--open');
 
         setTimeout(function () {
-            document.querySelector('.modal--fadeIn').classList.remove('modal--fadeIn');
+            document.querySelector('.-frogtool-modal--fadeIn').classList.remove('-frogtool-modal--fadeIn');
         }, 50);
     }
 
-    document.querySelector('#' + modalId).classList.add('modal--open');
+    document.querySelector('#' + modalId).classList.add('-frogtool-modal--open');
 
     setTimeout(function () {
-        document.querySelector('#' + modalId).classList.add('modal--fadeIn');
+        document.querySelector('#' + modalId).classList.add('-frogtool-modal--fadeIn');
     }, 50);
 }
 
 function closeModal() {
-    let openModal = document.querySelector('.modal--open');
-    openModal.classList.remove('modal--fadeIn');
+    let openModal = document.querySelector('.-frogtool-modal--open');
+    openModal.classList.remove('-frogtool-modal--fadeIn');
 
     setTimeout(function () {
-        openModal.classList.remove('modal--open');
+        openModal.classList.remove('-frogtool-modal--open');
     }, 200);
 }
 
@@ -55,51 +55,47 @@ modalBtn.forEach(function(elem) {
 });
 
 modal.forEach(function(elem) {
-    elem.addEventListener("click", closeModal);
-
-    elem.querySelector('[data-close-modal]').addEventListener("click", closeModal);
-
-    elem.querySelector('*').addEventListener("click", function() {
-        event.stopPropagation();
-    });
+    if (elem.querySelector('[data-frogtool-close-modal]')) {
+        elem.querySelector('[data-frogtool-close-modal]').addEventListener("click", closeModal);
+    }
 });
 
 // выпадающий список
-document.querySelectorAll('.dropdown').forEach(function (dropdownWrapper) {
-    const dropdownBtn = dropdownWrapper.querySelector('.dropdown__btn');
-    const dropdownList = dropdownWrapper.querySelector('.dropdown__list');
-    const dropdownItems = dropdownList.querySelectorAll('.dropdown__list-item');
-    const dropdownInput = dropdownWrapper.querySelector('.dropdown__input');
+document.querySelectorAll('.-frogtool-dropdown').forEach(function (dropdownWrapper) {
+    const dropdownBtn = dropdownWrapper.querySelector('.-frogtool-dropdown__btn');
+    const dropdownList = dropdownWrapper.querySelector('.-frogtool-dropdown__list');
+    const dropdownItems = dropdownList.querySelectorAll('.-frogtool-dropdown__list-item');
+    const dropdownInput = dropdownWrapper.querySelector('.-frogtool-dropdown__input');
     
     dropdownBtn.addEventListener('click', function () {
-        dropdownList.classList.toggle('dropdown__list--visible');
-        this.classList.toggle('dropdown__btn--active');
+        dropdownList.classList.toggle('-frogtool-dropdown__list--visible');
+        this.classList.toggle('-frogtool-dropdown__btn--active');
     });
     
     dropdownItems.forEach(function(listItem) {
         listItem.addEventListener('click', function (e) {
             dropdownItems.forEach(function(el) {
-                el.classList.remove('dropdown__list-item--active');
+                el.classList.remove('-frogtool-dropdown__list-item--active');
             })
 
-            e.target.classList.add('dropdown__list-item--active');
+            e.target.classList.add('-frogtool-dropdown__list-item--active');
             dropdownBtn.innerHTML = this.innerHTML;
             dropdownInput.value = this.dataset.value;
-            dropdownList.classList.remove('dropdown__list--visible');
+            dropdownList.classList.remove('-frogtool-dropdown__list--visible');
         })
     })
     
     document.addEventListener('click', function (e) {
         if ( e.target !== dropdownBtn ){
-            dropdownBtn.classList.remove('dropdown__btn--active');
-            dropdownList.classList.remove('dropdown__list--visible');
+            dropdownBtn.classList.remove('-frogtool-dropdown__btn--active');
+            dropdownList.classList.remove('-frogtool-dropdown__list--visible');
         }
     })
     
     document.addEventListener('keydown', function (e) {
         if( e.key === 'Tab' || e.key === 'Escape' ) {
-            dropdownBtn.classList.remove('dropdown__btn--active');
-            dropdownList.classList.remove('dropdown__list--visible');
+            dropdownBtn.classList.remove('-frogtool-dropdown__btn--active');
+            dropdownList.classList.remove('-frogtool-dropdown__list--visible');
         }
     }) 
 })
@@ -110,7 +106,7 @@ const tabs = () => { // объявляем основную функцию дл�
     const body = document.querySelector('.frogtool__tabs-content') // ищем элемент с контентом и записываем в константу
 
     const getActiveTabName = () => { // объявляем функцию для получения названия активной вкладки
-        return head.querySelector('.frogtool__tabs-nav-item--active').dataset.tab // возвращаем значение data-tab активной кнопки
+        return head.querySelector('.frogtool__tabs-nav-item--active').dataset.frogtoolTab // возвращаем значение data-tab активной кнопки
     }
 
     const setActiveContent = () => { // объявляем функцию для установки активного элемента контента
@@ -118,7 +114,7 @@ const tabs = () => { // объявляем основную функцию дл�
             body.querySelector('.frogtool__tabs-section--active').classList.remove('frogtool__tabs-section--active') // то скрываем его
         }
         
-        body.querySelector(`[data-tab=${getActiveTabName()}]`).classList.add('frogtool__tabs-section--active') // затем ищем элемент контента, у которого значение data-tab совпадает со значением data-tab активной кнопки и отображаем его
+        body.querySelector(`[data-frogtool-tab=${getActiveTabName()}]`).classList.add('frogtool__tabs-section--active') // затем ищем элемент контента, у которого значение data-tab совпадает со значением data-tab активной кнопки и отображаем его
     }
 
     // проверяем есть ли активная вкладка
@@ -147,20 +143,20 @@ const tabs = () => { // объявляем основную функцию дл�
 tabs() // вызываем основную функцию
 
 // появление кнопок в рейтинге
-let ratingInputs = document.querySelectorAll('.rating__input');
+let ratingInputs = document.querySelectorAll('.-frogtool-rating__input');
 
 for (let input of ratingInputs) {
     input.addEventListener('change', function () {
-        document.querySelector('.form-rating__footer').style.display = 'flex';
+        document.querySelector('.-frogtool-form-rating__footer').style.display = 'flex';
 
         console.log(this.value)
 
         if (this.value == 3 || this.value == 4 || this.value == 5) {
-            document.querySelector('.form-rating__w-review').classList.add('is-show')
-            document.querySelector('.form-rating__leave').classList.remove('is-show')
+            document.querySelector('.-frogtool-form-rating__w-review').classList.add('is-show')
+            document.querySelector('.-frogtool-form-rating__leave').classList.remove('is-show')
         } else {
-            document.querySelector('.form-rating__leave').classList.add('is-show')
-            document.querySelector('.form-rating__w-review').classList.remove('is-show')
+            document.querySelector('.-frogtool-form-rating__leave').classList.add('is-show')
+            document.querySelector('.-frogtool-form-rating__w-review').classList.remove('is-show')
         }
     });
 }
@@ -170,9 +166,9 @@ function validation(form) {
     function removeError(input) {
         const parent = input.parentNode;
 
-        if (parent.classList.contains('error')) {
-            parent.querySelector('.input__error').remove()
-            parent.classList.remove('error')
+        if (parent.classList.contains('-frogtool-error')) {
+            parent.querySelector('.-frogtool-input__error').remove()
+            parent.classList.remove('-frogtool-error')
         }
     }
 
@@ -180,16 +176,16 @@ function validation(form) {
         const parent = input.parentNode;
         const errorLabel = document.createElement('div');
 
-        errorLabel.classList.add('input__error');
+        errorLabel.classList.add('-frogtool-input__error');
         errorLabel.textContent = text;
 
-        parent.classList.add('error');
+        parent.classList.add('-frogtool-error');
 
         parent.append(errorLabel);
     }
 
     const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-    const input = document.querySelector('input[name="feedback-email"]');
+    const input = document.querySelector('input[name="-frogtool-feedback-email"]');
 
     function isEmailValid(value) {
         return EMAIL_REGEXP.test(value);
@@ -199,7 +195,7 @@ function validation(form) {
 
     const allInputs = form.querySelectorAll('textarea');
 
-    const email = form.querySelector('input[name="feedback-email"]')
+    const email = form.querySelector('input[name="-frogtool-feedback-email"]')
 
     for (const input of allInputs) {
         if (input.value == "") {
@@ -214,7 +210,7 @@ function validation(form) {
 
     if (!isEmailValid(email.value)) {
         removeError(input);
-        createError(input, 'Error e');
+        createError(input, 'Error email');
         result = false;
 
     } else {
@@ -225,10 +221,10 @@ function validation(form) {
 }
 
 
-document.querySelector('.feedback__form').addEventListener('submit', function(event) {
+document.querySelector('.-frogtool-feedback__form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     if (validation(this) == true) {
-        this.querySelector('.form__success').classList.add('is-show');
+        this.querySelector('.-frogtool-form__success').classList.add('is-show');
     } 
 })

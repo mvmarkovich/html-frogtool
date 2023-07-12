@@ -227,14 +227,14 @@ body {
   line-height: 1;
 }
 
-img {
+.-frogtool-modal img {
     width: auto;
     height: auto;
     display: block;
     max-width: 100%;
 }
 
-.btn {
+.-frogtool-btn {
     font-family: 'Roboto', sans-serif;
     color: #fff;
     font-weight: 500;
@@ -257,13 +257,13 @@ img {
     border: none;
 }
 
-.btn:active, 
-.btn:focus {
+.-frogtool-btn:active, 
+.-frogtool-btn:focus {
     outline: 0;
     box-shadow: none;
 }
 
-.btn--reset {
+.-frogtool-btn--reset {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -274,39 +274,39 @@ img {
     cursor: pointer;
 }
 
-.btn--green {
+.-frogtool-btn--green {
     color: #fff;
     background: #1ADE64;
 }
 
-.btn--green:hover {
+.-frogtool-btn--green:hover {
     color: #fff;
     background: #04fb61;
 }
 
-.btn--green:active {
+.-frogtool-btn--green:active {
     color: #fff;
     background: #446b11;
 }
 
-.btn--blue {
+.-frogtool-btn--blue {
     color: #fff;
     background: #2BB3FF;
 }
 
-.btn--blue:hover {
+.-frogtool-btn--blue:hover {
     color: #fff;
     background: #54befa;
 }
 
-.btn--blue:active {
+.-frogtool-btn--blue:active {
     color: #fff;
     background: #0a7fc1;
 }
 
-.btn--cross:after,
-.btn--login:after,
-.btn--copy:after {
+.-frogtool-btn--cross:after,
+.-frogtool-btn--login:after,
+.-frogtool-btn--copy:after {
     content: '';
     width: 16px;
     height: 16px;
@@ -316,26 +316,26 @@ img {
     background-size: contain;
 }
 
-.btn--cross:after {
+.-frogtool-btn--cross:after {
     background-image: url('../img/icons/cross.svg');
 }
 
-.btn--login:after {
+.-frogtool-btn--login:after {
     background-image: url('../img/icons/login.svg');
     margin-left: 6px;
 }
 
-.btn--copy:after {
+.-frogtool-btn--copy:after {
     background-image: url('../img/icons/copy.svg');
     margin-left: 6px;
 }
 
 /* START forms */
-.form {
+.-frogtool-form {
 
 }
 
-.form__success {
+.-frogtool-form__success {
     color: #1A1C26;
     padding: 12px 16px;
     background: #E1FFED;
@@ -346,15 +346,15 @@ img {
     display: none;
 }
 
-.form__success.is-show {
+.-frogtool-form__success.is-show {
     display: block;
 }
 
-.form__desc {
+.-frogtool-form__desc {
     margin: 0 0 16px;
 }
 
-.form__footer {
+.-frogtool-form__footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -362,35 +362,35 @@ img {
     margin: 16px 0 0;
 }
 
-.form__footer > * {
+.-frogtool-form__footer > * {
     margin: 16px 0 0;
 }
 
-.form__footer > *:first-child {
+.-frogtool-form__footer > *:first-child {
     margin: 0;
 }
 
-.form__send {
+.-frogtool-form__send {
     padding: 0 16px;
     min-height: 32px;
 }
 
-.input {
+.-frogtool-input {
     margin: 0 0 16px;
 }
 
-.input__label {
+.-frogtool-input__label {
     font-weight: 500;
     margin: 0 0 4px;
     display: block;
 }
 
-.input__error {
+.-frogtool-input__error {
     color: #FF0000;
     margin: 4px 0 0;
 }
 
-.input__elem {
+.-frogtool-input__elem {
     background: #fff;
     border: 1px solid #C7E1FF;
     border-radius: 4px;
@@ -401,20 +401,20 @@ img {
     resize: none;
 }
 
-.input__elem.invalid ~ .input__error {
+.-frogtool-input__elem.invalid ~ .-frogtool-input__error {
     display: block;
 }
 
-textarea.input__elem {
+textarea.-frogtool-input__elem {
     padding-top: 8px;
     padding-bottom: 8px;
 }
 
-.input__switch {
+.-frogtool-input__switch {
 	display: none;
 }
 
-.input__switch-label {
+.-frogtool-input__switch-label {
 	cursor: pointer;
 	width: 36px;
 	height: 16px;
@@ -424,7 +424,7 @@ textarea.input__elem {
 	position: relative;
 }
 
-.input__switch-label:before {
+.-frogtool-input__switch-label:before {
     content: 'OFF';
     color: #fff;
     font-weight: 500;
@@ -436,7 +436,7 @@ textarea.input__elem {
     transform: translateY(-50%);
 }
 
-.input__switch-label:after {
+.-frogtool-input__switch-label:after {
 	content: '';
 	position: absolute;
 	top: 2px;
@@ -448,28 +448,28 @@ textarea.input__elem {
 	transition: 0.3s;
 }
 
-.input__switch:checked + .input__switch-label {
+.-frogtool-input__switch:checked + .-frogtool-input__switch-label {
 	background: #2BB3FF;
 }
 
-.input__switch:checked + .input__switch-label:before {
+.-frogtool-input__switch:checked + .-frogtool-input__switch-label:before {
     content: 'ON';
     right: auto;
     left: 6px;
 }
 
-.input__switch:checked + .input__switch-label:after {
+.-frogtool-input__switch:checked + .-frogtool-input__switch-label:after {
 	left: calc(100% - 2px);
 	transform: translateX(-100%);
 }
 
-.input__switch-label:active:after {
+.-frogtool-input__switch-label:active:after {
 	width: 130px;
 }
 /* END forms*/
 
 /* START rating*/
-.rating { 
+.-frogtool-rating { 
     padding: 0;
     margin: 16px 0 0;
     border: none;
@@ -479,11 +479,11 @@ textarea.input__elem {
     justify-content: center;
 }
 
-.rating__input{ 
+.-frogtool-rating__input{ 
     display: none;
 }
 
-.rating__input-label {
+.-frogtool-rating__input-label {
     content: '';
     width: 24px;
     height: 24px;
@@ -498,73 +498,80 @@ textarea.input__elem {
     margin-right: 4px;
 }
 
-.rating__input-label {
+.-frogtool-rating__input-label {
     margin: 0;
 }
 
-.rating > .rating__input:checked ~ .rating__input-label, 
-.rating:not(:checked) > .rating__input-label:hover, 
-.rating:not(:checked) > label:hover ~ label { 
+.-frogtool-rating > .-frogtool-rating__input:checked ~ .-frogtool-rating__input-label, 
+.-frogtool-rating:not(:checked) > .-frogtool-rating__input-label:hover, 
+.-frogtool-rating:not(:checked) > label:hover ~ label { 
     background-image: url('../img/icons/rating-star-checked.svg');
 } 
 
-.rating > input:checked + label:hover, 
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, 
-.rating > input:checked ~ label:hover ~ label { 
+.-frogtool-rating > input:checked + label:hover, 
+.-frogtool-rating > input:checked ~ label:hover,
+.-frogtool-rating > label:hover ~ input:checked ~ label, 
+.-frogtool-rating > input:checked ~ label:hover ~ label { 
     background-image: url('../img/icons/rating-star-checked.svg');
 }
 
-.form-rating__footer {
+.-frogtool-form-rating__footer {
     display: none;
 }
 
-.form-rating__footer .btn {
+.-frogtool-form-rating__footer .-frogtool-btn {
     display: none;
     margin: 0;
 }
 
-.form-rating__footer .btn.is-show {
+.-frogtool-form-rating__footer .-frogtool-btn.is-show {
     display: flex;
 }
 
 /* END rating */
 
-.modal {
+.-frogtool-modal {
     display: none;
 }
 
-.modal--ext {
+.-frogtool-modal--center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.-frogtool-modal--ext {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.modal--ext .modal__square {
+.-frogtool-modal--ext .-frogtool-modal__square {
     opacity: 0;
     transition: .3s;
 }
 
-.modal--open {
+.-frogtool-modal--open {
     display: block;
 }
 
-.modal--fadeIn {
+.-frogtool-modal--fadeIn {
 
 }
 
-.modal--fadeIn .modal__square {
+.-frogtool-modal--fadeIn .-frogtool-modal__square {
     opacity: 1;
 }
 
-.modal__square {
+.-frogtool-modal__square {
     width: 300px;
     min-width: 300px;
     border-radius: 8px;
     box-shadow: 0px 4px 16px #D5DCFF;
 }
 
-.modal__head {
+.-frogtool-modal__head {
     padding: 0 16px;
     display: flex;
     align-items: center;
@@ -575,7 +582,7 @@ textarea.input__elem {
     border-radius: 8px 8px 0 0;
 }
 
-.modal__title {
+.-frogtool-modal__title {
     font-weight: 500;
     font-size: 12px;
     line-height: 1.1;
@@ -583,17 +590,17 @@ textarea.input__elem {
     align-items: center;
 }
 
-.modal__title-icon {
+.-frogtool-modal__title-icon {
     margin-right: 8px;
     max-width: 16px;
 }
 
-.modal__content {
+.-frogtool-modal__content {
     background: #fff;
     padding: 16px;
 }
 
-.modal__upgrade {
+.-frogtool-modal__upgrade {
     background: #E1FFED;
     border: 1px solid #BDFFC0;
     border-radius: 4px;
@@ -601,16 +608,16 @@ textarea.input__elem {
     margin: 0 0 16px;
 }
 
-.modal__upgrade-title {
+.-frogtool-modal__upgrade-title {
     font-weight: 700;
     margin: 0 0 16px;
 }
 
-.modal__upgrade-list {
+.-frogtool-modal__upgrade-list {
 
 }
 
-.modal__upgrade-item {
+.-frogtool-modal__upgrade-item {
     position: relative;
     margin: 0 0 6px;
     font-weight: 400;
@@ -619,7 +626,7 @@ textarea.input__elem {
     padding-left: 12px;
 }
 
-.modal__upgrade-item::before {
+.-frogtool-modal__upgrade-item::before {
     content: '';
     width: 9px;
     height: 9px;
@@ -630,15 +637,15 @@ textarea.input__elem {
     left: 0;
 }
 
-.modal__upgrade-item:last-child {
+.-frogtool-modal__upgrade-item:last-child {
     margin: 0;
 }
 
-.modal__upgrade-btns {
+.-frogtool-modal__upgrade-btns {
     margin: 16px 0 0;
 }
 
-.modal__warning {
+.-frogtool-modal__warning {
     position: relative;
     background: #FFF3DE;
     border: 1px solid #FFD694;
@@ -651,12 +658,12 @@ textarea.input__elem {
     justify-content: space-between;
 }
 
-.modal__warning-title {
+.-frogtool-modal__warning-title {
     display: inline-flex;
     align-items: center;
 }
 
-.modal__warning-title:before {
+.-frogtool-modal__warning-title:before {
     content: '';
     width: 16px;
     height: 16px;
@@ -665,19 +672,19 @@ textarea.input__elem {
     margin-right: 6px;
 }
 
-.modal__warning-desc {
+.-frogtool-modal__warning-desc {
     font-weight: 700;
 }
 
-.modal__nav {
+.-frogtool-modal__nav {
     margin: 16px 0;
 }
 
-.modal__nav .input {
+.-frogtool-modal__nav .-frogtool-input {
     margin: 0;
 }
 
-.modal__nav-item {
+.-frogtool-modal__nav-item {
     padding: 10px 8px;
     display: flex;
     align-items: center;
@@ -685,65 +692,65 @@ textarea.input__elem {
     border-bottom: 1px solid #EEF1FF
 }
 
-.modal__nav-item-label {
+.-frogtool-modal__nav-item-label {
     cursor: pointer;
     text-decoration: none;
 }
 
-.modal__nav-item-label:hover .modal__nav-item-title {
+.-frogtool-modal__nav-item-label:hover .-frogtool-modal__nav-item-title {
     color: #2BB3FF;
 }
 
-.modal__nav-item-title {
+.-frogtool-modal__nav-item-title {
     color: #1A1C26;
     display: inline-flex;
     align-items: center;
     transition: .2s;
 }
 
-.modal__nav-icons {
+.-frogtool-modal__nav-icons {
     width: 16px;
     height: 16px;
     margin-right: 12px;
 }
 
-.modal__btns {
+.-frogtool-modal__btns {
     margin: 16px 0 0;
 }
 
-.modal__footer { 
+.-frogtool-modal__footer { 
     padding: 16px;
     background: #F9FAFF;
     border-top: 1px solid #EEF1FF;
     border-radius: 0 0 8px 8px;
 }
 
-.modal__footer .dropdown--light {
+.-frogtool-modal__footer .-frogtool-dropdown--light {
     margin: -6px 0;
 }
 
-.modal__share {
+.-frogtool-modal__share {
     padding: 16px 0;
     text-align: center;
 }
 
-.modal__share-img {
+.-frogtool-modal__share-img {
     margin: 0 auto 16px;
 }
 
-.modal__share-title {
+.-frogtool-modal__share-title {
     color: #2F374C;
     font-weight: 500;
     font-size: 16px;
     margin: 0 0 16px;
 }
 
-.modal__share-desc {
+.-frogtool-modal__share-desc {
     color: #2F374C;
     margin: 16px 0 0;
 }
 
-.modal__share-copylink {
+.-frogtool-modal__share-copylink {
     color: #0D6FFB;
     text-decoration: none;
     white-space: nowrap;
@@ -760,30 +767,30 @@ textarea.input__elem {
     width: 100%;
 }
 
-.modal__share-btns {
+.-frogtool-modal__share-btns {
     margin: 16px 0 0;
 }
 
-.dropdown {
+.-frogtool-dropdown {
     max-width: 343px;
     position: relative;
 }
 
-.dropdown--light {
+.-frogtool-dropdown--light {
     display: inline-block;
 }
 
-.dropdown--light .dropdown__btn {
+.-frogtool-dropdown--light .-frogtool-dropdown__btn {
     background: transparent;
     padding: 0;
 }
 
-.dropdown--light .dropdown__list {
+.-frogtool-dropdown--light .-frogtool-dropdown__list {
     left: 0;
     right: auto;
 }
 
-.dropdown__btn {
+.-frogtool-dropdown__btn {
     color: #1A1C26;
     background: #EEF1FF;
     border-radius: 4px;
@@ -791,7 +798,7 @@ textarea.input__elem {
     padding: 0 6px;
 }
 
-.dropdown__btn::after {
+.-frogtool-dropdown__btn::after {
     content: "";
     background: url('../img/icons/chevron-down.svg') no-repeat center / contain;
     width: 16px;
@@ -799,11 +806,11 @@ textarea.input__elem {
     min-width: 16px;
 }
 
-.dropdown__btn--active::after {
+.-frogtool-dropdown__btn--active::after {
     transform: rotate(-180deg);
 }
 
-.dropdown__list {
+.-frogtool-dropdown__list {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -822,12 +829,12 @@ textarea.input__elem {
     border-radius: 8px;
 }
 
-.dropdown__list--visible {
+.-frogtool-dropdown__list--visible {
     opacity: 1;
     visibility: visible;
 }
 
-.dropdown__list-item {
+.-frogtool-dropdown__list-item {
     margin: 0;
     padding: 0 16px;
     cursor: pointer;
@@ -841,25 +848,25 @@ textarea.input__elem {
     width: 100%;
 }
 
-.dropdown__list-item span:not([class]) {
+.-frogtool-dropdown__list-item span:not([class]) {
     display: none;
 }
 
-.dropdown__list-item--active {
+.-frogtool-dropdown__list-item--active {
     background: #F9FAFF;
 }
 
-.dropdown__list-item:hover {
+.-frogtool-dropdown__list-item:hover {
     background: #F9FAFF;
 }
 
-.dropdown__country {
+.-frogtool-dropdown__country {
     margin: 0 6px 0 0;
     display: inline-block;
     max-width: 16px;
 }
 
-.dropdown__input {
+.-frogtool-dropdown__input {
     display: none;
 }
 
@@ -1029,11 +1036,11 @@ textarea.input__elem {
     display: none;
 }
 
-.frogtool-modal.modal--open {
+.frogtool-modal.-frogtool-modal--open {
     display: block;
 }
 
-.frogtool-modal.modal--fadeIn .frogtool-modal__square {
+.-frogtool-modal.-frogtool-modal--fadeIn .frogtool-modal__square {
     opacity: 1;
 }
 
